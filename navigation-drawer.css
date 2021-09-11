@@ -1,0 +1,205 @@
+/**
+ * Main styles for the navigation drawer component.
+ *
+ * @see https://material.io/components/navigation-drawer
+ * @see https://material.io/design/motion/speed.html
+ * @see https://google.github.io/styleguide/htmlcssguide.html
+ * @see https://github.com/google/closure-stylesheets
+ */
+
+#navigation-drawer .hamburger-icon span,
+#navigation-drawer .hamburger-icon span::before,
+#navigation-drawer .hamburger-icon span::after {
+  /* The hamburger icon lines color. */
+  background-color: gray;
+}
+
+#navigation-drawer input:focus ~ .hamburger-icon {
+  color: gray;
+  outline: auto;
+}
+
+#navigation-drawer label {
+  /* The scrim background color. */
+  background-color: black;
+}
+
+#navigation-drawer,
+#navigation-drawer .navigation-drawer-panel {
+  background-color: white;
+}
+
+#navigation-drawer .navigation-drawer-panel {
+  box-shadow: 4px 0 12px rgba(0, 0, 0, 0.25);
+  /*
+   * Modal navigation drawer
+   * @see https://material.io/components/navigation-drawer#specs
+   */
+  width: calc(100% - 56px);
+  padding-top: 74px;
+}
+
+@media only screen and (min-width: 768px) {
+  #navigation-drawer .navigation-drawer-panel {
+    /*
+     * Standard navigation drawer
+     * @see https://material.io/components/navigation-drawer#specs
+     */
+    width: 256px;
+  }
+}
+
+#navigation-drawer {
+  display: block;
+  position: absolute;
+  -webkit-user-select: none;
+  user-select: none;
+  z-index: 91;
+}
+
+#navigation-drawer input,
+#navigation-drawer .hamburger-icon {
+  cursor: pointer;
+  height: 38px;
+  padding-left: 4px;
+  position: absolute;
+  width: 40px;
+  z-index: 92;
+}
+
+#navigation-drawer input {
+  appearance: none;
+  display: block;
+  opacity: 0;
+  z-index: 93;
+  -webkit-touch-callout: none;
+}
+
+/*
+ * Hamburger icon anatomy:
+ * span - first line
+ * span:before - middle line
+ * span:after - last line
+ */
+#navigation-drawer .hamburger-icon span,
+#navigation-drawer .hamburger-icon span:before,
+#navigation-drawer .hamburger-icon span:after {
+  border-radius: 4px;
+  height: 2px;
+  position: absolute;
+  transition: transform 150ms ease;
+  width: 36px;
+}
+
+#navigation-drawer .hamburger-icon span {
+  display: block;
+  margin-top: 8px;
+  transition-duration: 400ms;
+  transition-timing-function: cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+#navigation-drawer .hamburger-icon span:before,
+#navigation-drawer .hamburger-icon span:after {
+  content: "";
+  display: block;
+}
+
+#navigation-drawer .hamburger-icon span:before {
+  top: 10px;
+  transition: opacity 150ms ease 100ms;
+}
+
+#navigation-drawer .hamburger-icon span:after {
+  bottom: -10px;
+  top: 20px;
+  transition: transform 400ms cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+#navigation-drawer input:checked ~ .hamburger-icon span {
+  transform: translate3d(0, 10px, 0) rotate(135deg);
+  transition-delay: 100ms;
+}
+
+#navigation-drawer input:checked ~ .hamburger-icon span:before {
+  opacity: 0;
+  transition-delay: 0s;
+}
+
+#navigation-drawer input:checked ~ .hamburger-icon span:after {
+  transform: translate3d(0, -20px, 0) rotate(-270deg);
+  transition-delay: 100ms;
+}
+
+#navigation-drawer input:checked,
+#navigation-drawer input:checked ~ .hamburger-icon {
+  position: fixed;
+}
+
+/*
+ * Navigation drawer anatomy:
+ * .navigation-drawer-panel - navigation drawer panel
+ * label - navigation drawer scrim element.
+ */
+#navigation-drawer .navigation-drawer-panel,
+#navigation-drawer label {
+  bottom: 0;
+  left: 0;
+  position: fixed;
+  right: 0;
+  top: 0;
+  /* The 'visibility' property is used to prevent Tab navigation. */
+  visibility: hidden;
+}
+
+#navigation-drawer .navigation-drawer-panel {
+  opacity: 0.95;
+  transform-origin: 0% 0%;
+  transform: translate(-200%, 0);
+  /*
+   * Exits and closing:
+   * A navigation drawer opens over 250ms but closes over 200ms.
+   * @see https://material.io/design/motion/speed.html#duration
+   *
+   * Accelerated easing:
+   * Elements exiting a screen use accelerated easing, a transition in which 
+   * the element starts at rest and ends at peak velocity.
+   * @see https://material.io/design/motion/speed.html#easing
+   */
+  transition: transform 200ms cubic-bezier(0.4, 0, 1, 1), visibility 1s linear;
+}
+
+#navigation-drawer label {
+  cursor: default;
+  display: block;
+  opacity: 0;
+  transition: opacity 250ms linear;
+}
+
+#navigation-drawer input:checked ~ .navigation-drawer-panel,
+#navigation-drawer input:checked ~ label {
+  visibility: visible;
+}
+
+#navigation-drawer input:checked ~ .navigation-drawer-panel {
+  transform: none;
+  /* 
+   * Exits and closing:
+   * A navigation drawer opens over 250ms but closes over 200ms.
+   * @see https://material.io/design/motion/speed.html#duration
+   *
+   * Decelerated easing:
+   * Incoming elements are animated using decelerated easing, in which 
+   * transitions begin at peak velocity (the fastest point in an element's 
+   * movement) and end at rest.
+   * @see https://material.io/design/motion/speed.html#easing
+   */
+  transition: transform 250ms cubic-bezier(0, 0, 0.2, 1);
+}
+
+#navigation-drawer input:checked ~ label {
+  /*
+   * Scrim color opacity: 32% (1 - 0.32 = 0.68)
+   * @see https://material.io/components/navigation-drawer#theming
+   */
+  opacity: 0.68;
+}

@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Navigation drawer menu</title>
+<meta name="description" content="">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=5.0">
+<link href="./navigation-drawer.css" rel="stylesheet">
+<style>
+/* Website specific styles */
+header h1 {
+  margin-left: 50px;
+}
+nav ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+nav a {
+  display: block;
+  margin: 0 1em;
+  padding: 1em;
+  text-decoration: none;
+  text-transform: uppercase;
+}
+
+/* Prevents page scrolling when the navigation drawer is open. */
+.is-drawer-open {
+  overflow: hidden;
+}
+</style>
+</head>
+<body>
+  <header>
+    <nav id="navigation-drawer" aria-expanded="false" aria-haspopup="true" aria-label="Main menu">
+      <script>document.addEventListener('keyup',function(e){
+        // Closes the navigation drawer by pressing Esc key.
+        if(27==e.keyCode)document.getElementById('hamburger-toggle').checked=!1
+      })
+      </script>
+      <input type="checkbox" id="hamburger-toggle" aria-label="Toggle menu"
+             onkeyup="if(13==event.keyCode)this.checked=!this.checked"
+             onclick="document.documentElement.classList.toggle('is-drawer-open')">
+      <label for="hamburger-toggle" tabindex="-1" aria-hidden="true" hidden>Close menu</label>
+      <div class="hamburger-icon" role="button" aria-label="Toggle menu"><span></span></div>
+      <div class="navigation-drawer-panel">
+        <ul role="menu">
+          <li role="menuitem"><a href="./?Home" aria-label="Home page">Home</a></li>
+          <li role="menuitem"><a href="./?About" aria-label="About us page">About</a></li>
+          <li role="menuitem"><a href="./?Contact" aria-label="Contact us page">Contact</a></li>
+        </ul>
+      </div>
+    </nav>
+    <h1>Header</h1>
+  </header>
+  <main>
+    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis nec sapien sit amet diam ullamcorper scelerisque. Nam condimentum et metus consectetur accumsan. Fusce non vulputate nisi. Curabitur cursus, eros et malesuada varius, purus ante vulputate enim, id porta magna neque sollicitudin tellus.</p>
+    <p>Curabitur tincidunt ex sed posuere pretium. Nullam malesuada et elit in tincidunt. Maecenas varius tellus eget ultrices aliquam. Nunc varius vel magna eu maximus. Phasellus luctus risus nibh, et pharetra quam tincidunt consequat. Proin erat sem, molestie sit amet cursus eget, tincidunt et massa.</p>
+    <p>Duis gravida purus quam. Aenean arcu est, eleifend sed congue eu, accumsan sollicitudin metus. Curabitur sed interdum arcu, cursus elementum velit. Nulla rhoncus, nulla sit amet dictum eleifend, nisl lectus tempor risus, vitae cursus dui mauris vitae justo.</p>
+    <p>Phasellus turpis tortor, sagittis id blandit quis, scelerisque <a href="./?Lorem1">sit amet dolor</a>. Praesent eget ligula iaculis, rhoncus magna id, aliquet sem. Cras orci purus, sodales et quam nec, vulputate ultrices eros.</p>
+    <p>&nbsp;</p>
+    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis nec sapien sit amet diam ullamcorper scelerisque. Nam condimentum et metus consectetur accumsan. Fusce non vulputate nisi. Curabitur cursus, eros et malesuada varius, purus ante vulputate enim, id porta magna neque sollicitudin tellus.</p>
+    <p>Curabitur tincidunt ex sed posuere pretium. Nullam malesuada et elit in tincidunt. Maecenas varius tellus eget ultrices aliquam. Nunc varius vel magna eu maximus. Phasellus luctus risus nibh, et pharetra quam tincidunt consequat. Proin erat sem, molestie sit amet cursus eget, tincidunt et massa.</p>
+    <p>Duis gravida purus quam. Aenean arcu est, eleifend sed congue eu, accumsan sollicitudin metus. Curabitur sed interdum arcu, cursus elementum velit. Nulla rhoncus, nulla sit amet dictum eleifend, nisl lectus tempor risus, vitae cursus dui mauris vitae justo.</p>
+    <p>Phasellus turpis tortor, sagittis id blandit quis, scelerisque sit <a href="./?Lorem2">amet dolor</a>. Praesent eget ligula iaculis, rhoncus magna id, aliquet sem. Cras orci purus, sodales et quam nec, vulputate ultrices eros.</p>
+    <p>&nbsp;</p>
+    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis nec sapien sit amet diam ullamcorper scelerisque. Nam condimentum et metus consectetur accumsan. Fusce non vulputate nisi. Curabitur cursus, eros et malesuada varius, purus ante vulputate enim, id porta magna neque sollicitudin tellus.</p>
+    <p>Curabitur tincidunt ex sed posuere pretium. Nullam malesuada et elit in tincidunt. Maecenas varius tellus eget ultrices aliquam. Nunc varius vel magna eu maximus. Phasellus luctus risus nibh, et pharetra quam tincidunt consequat. Proin erat sem, molestie sit amet cursus eget, tincidunt et massa.</p>
+    <p>Duis gravida purus quam. Aenean arcu est, eleifend sed congue eu, accumsan sollicitudin metus. Curabitur sed interdum arcu, cursus elementum velit. Nulla rhoncus, nulla sit amet dictum eleifend, nisl lectus tempor risus, vitae cursus dui mauris vitae justo.</p>
+    <p>Phasellus turpis tortor, sagittis id blandit quis, scelerisque sit amet <a href="./?Lorem3">dolor</a>. Praesent eget ligula iaculis, rhoncus magna id, aliquet sem. Cras orci purus, sodales et quam nec, vulputate ultrices eros.</p>
+  </main>
+</body>
+</html>
