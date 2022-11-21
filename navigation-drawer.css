@@ -15,8 +15,8 @@
 }
 
 #navigation-drawer input:focus ~ .hamburger-icon {
-  color: gray;
-  outline: auto;
+  outline: darkgray 2px solid;
+  border-radius: 3px;
 }
 
 #navigation-drawer label {
